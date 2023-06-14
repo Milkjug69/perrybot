@@ -100,6 +100,10 @@ async def on_message(message):
         await message.channel.send('/fish')
         await bot.process_commands(message)
 
+    if message.content == '!github':
+        await message.channel.send('https://github.com/Milkjug69/perrybot')
+        await bot.process_commands(message)
+
     if message.content == '!fish':
         await message.channel.send('/fish')
         await bot.process_commands(message)
