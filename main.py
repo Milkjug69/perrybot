@@ -17,14 +17,17 @@ token = config.token
 
 #lists
 cowboy= ['Howdy', 'HOWDY!', 'howdy','HOWDY']
-hello = ['hello', 'Hello!', 'Hello', 'Hi', 'hi', 'hi!', 'Hi!', 'HI', 'Hello']
-octy = ["beaststars", "Beaststars", "Beaststars!", "beaststars!", "Beaststar!", "Beaststar", "beaststar", "beaststar!"]
-snake = ['bork', 'bork!', 'Bork!', 'BORK!','BORK','Bork']
-foot = ['foot','feet','Foot','Feet','FEET','FOOT']
-status= ["Plea's of the mortals","the end","bork","the people living in your walls","mole people", "lizard people", 'foot lickers',"Anivia Gaming"]
-perry= ["Pewe","Perrey","perry","pewe","Pewy","pewy"]
-boob= ['booba','Booba','titty','Titty','8008','Mommy Milkers','Mommy milkers','mommy milkies','mommy milkers','boob','boobie','Boob','Boobie','mommy milkies']
+hello = ['hello', 'Hello!', 'Hello', 'Hi', 'hi', 'hi!', 'Hi!', 'HI', 'Hello','I know where you keep your liver']
+snake = ['bork', 'bork!']
+foot = ['foot','feet','Foot','Feet','FEET','FOOT','Meow',':stuck_out_tongue:']
+status= ["Plea's of the mortals","the end","bork","the people living in your walls","mole people", "lizard people", 'foot lickers',"Anivia Gaming","microwave","MMMMMMMMMMMMN MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNMMMMMMMM MMMM","The FROG"]
+perry= ["Pewe","perry","Pewy"]
+boob= ['booba','titty','8008','Mommy milkers','mommy milkies','boob','boobie','boobies']
 response= ['i will eat your liver','%a^d&f*h#n@m$1','$%(^()@#(%@$#%','?<>A><RER<>T><','!%()_%#@()@#%())(@@#$!','%a^d&f*h#n@m$1','$%(^()@#(%@$#%','?<>A><RER<>T><','!%()_%#@()@#%())(@@#$!','I know where you live ']
+fart = ['Fart','fart']
+Darth = ['Darth''darth']
+Meow = ['mmmmmmmmmmmmmm','meow','moeow','meOW','growls','Do you wanna tickle my big ol long toes?','meow',':face_with_monocle:',':face_with_raised_eyebrow:','meOW','meow']
+toz = ['Toes','Toe','TOES','TOE','toes','toe']
 #bot
 @bot.event
 async def on_ready():
@@ -36,16 +39,25 @@ async def on_message(message):
     if message.author.bot:
         await bot.process_commands(message)
         return
-    if any(word in message.content.split() for word in boob):
-        await message.channel.send(random.choice(boob))
+    if any(word in message.content.lower().split() for word in boob):
+        B =(random.choice(boob))
+        boobers = " " .join(B)
+        await message.channel.send(boobers)
         await bot.process_commands(message)
 
-    if any(word in message.content.split() for word in hello):
-        await message.channel.send('Hello!')
+
+    if any(word in message.content.lower().split() for word in hello):
+        v=(random.choice(hello)+" " + random.choice(hello)+ " " + random.choice(hello))
+        hi = " " .join(v)
+        await message.channel.send(hi)
         await bot.process_commands(message)
         #print("hi")
+    if any(word in message.content.lower().split() for word in fart):
+        await message.channel.send("F A R T!")
+        await bot.process_commands(message)
+        #print("commands")
 
-    if message.content == 'Darth':
+    if any(word in message.content.lower().split() for word in Darth):
         await message.channel.send(
             'Did you ever hear the tragedy of Darth Plagueis The Wise? I thought not. It’s not a story the Jedi would '
             'tell you. It’s a Sith legend. Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he '
@@ -58,8 +70,14 @@ async def on_message(message):
         await bot.process_commands(message)
         #print('darth')
 
-    if any(word in message.content.split() for word in snake):
-        await message.channel.send('bork!')
+    if any(word in message.content.lower().split() for word in toz):
+        await  message.channel.send(random.choice(Meow))
+        #await message.channel.send('meow!')
+        await bot.process_commands(message)
+        #print("toz")
+
+    if any(word in message.content.lower().split() for word in snake):
+        await message.channel.send('bork! '+":snake:")
         await bot.process_commands(message)
         #print("bork")
 
@@ -67,6 +85,24 @@ async def on_message(message):
         await message.channel.send('try; !help, !add,!website')
         await bot.process_commands(message)
         #print("commands")
+
+    if message.content.lower() == 'frog':
+        await message.channel.send(':frog:')
+        await bot.process_commands(message)
+        #print("commands")
+
+    if message.content == 'eat ass':
+        await message.channel.send(':stuck_out_tongue:')
+        await bot.process_commands(message)
+        # print("commands")
+
+    if message.content == '!fish':
+        await message.channel.send('/fish')
+        await bot.process_commands(message)
+
+    if message.content == '!fish':
+        await message.channel.send('/fish')
+        await bot.process_commands(message)
 
     if message.content == '!website':
         await message.channel.send('https://milkjug69.github.io/Milk_Zone/')
@@ -78,7 +114,7 @@ async def on_message(message):
         await bot.process_commands(message)
         #print("help")
 
-    if any(word in message.content.split() for word in cowboy):
+    if any(word in message.content.lower().split() for word in cowboy):
         await message.channel.send('YEEHAW')
         await bot.process_commands(message)
         #print("cowboy")
@@ -88,16 +124,42 @@ async def on_message(message):
         await bot.process_commands(message)
         #print("add")
 
-    if any(word in message.content.split() for word in perry):
+    if any(word in message.content.lower().split() for word in perry):
         await  message.channel.send(random.choice(response), delete_after=1)
+        await bot.process_commands(message)
+
+    if message.content == 'morse code':
+        await message.channel.send('.-- . .----. ...- . / -... . . -. / - .-. -.-- .. -. --. / - --- / .-. . .- -.-. .... / -.-- --- ..- / -.-. --- -. -.-. . .-. -. .. -. --. '
+                                   '/ -.-- --- ..- .-. / ...- . .... .. -.-. .-.. . .----. ... / . -..- - . -. -.. . -.. / .-- .- .-. .-. .- -. - -.-- .-.-.- / -.-- --- ..- /'
+                                   ' ... .... --- ..- .-.. -.. .----. ...- . / .-. . -.-. . .. ...- . -.. / .- / -. --- - .. -.-. . / .. -. / - .... . / -- .- .. .-.. / .- -...'
+                                   ' --- ..- - / -.-- --- ..- .-. / -.-. .- .-. .----. ... / . -..- - . -. -.. . -.. / .-- .- .-. .-. .- -. - -.-- / . .-.. .. --. .. -... .. .-'
+                                   '.. .. - -.-- .-.-.- / ... .. -. -.-. . / .-- . .----. ...- . / -. --- - / --. --- - - . -. / .- / .-. . ... .--. --- -. ... . --..-- / .-- . '
+                                   '.----. .-. . / --. .. ...- .. -. --. / -.-- --- ..- / .- / ..-. .. -. .- .-.. / -.-. --- ..- .-. - . ... -.-- / -.-. .- .-.. .-.. / -... . ..-'
+                                   '. --- .-. . / .-- . / -.-. .-.. --- ... . / --- ..- - / -.-- --- ..- .-. / ..-. .. .-.. . .-.-.- / .--. .-. . ... ... / ..--- / - --- / -... '
+                                   '. / .-. . -- --- ...- . -.. / .- -. -.. / .--. .-.. .- -.-. . -.. / --- -. / --- ..- .-. / -.. --- -....- -. --- - -....- -.-. .- .-.. .-.. / '
+                                   '.-.. .. ... - .-.-.- / - --- / ... .--. . .- -.- / - --- / ... --- -- . --- -. . / .- -... --- ..- - / .--. --- ... ... .. -... .-.. -.-- / .'
+                                   ' -..- - . -. -.. .. -. --. / --- .-. / .-. . .. -. ... - .- - .. -. --. / -.-- --- ..- .-. / ...- . .... .. -.-. .-.. . .----. ... / .-- .- .-.'
+                                   ' .-. .- -. - -.-- --..-- / .--. .-. . ... ... / .---- / - --- / ... .--. . .- -.- / .-- .. - .... / .- / .-- .- .-. .-. .- -. - -.-- / ... .--. '
+                                   '. -.-. .. .- .-.. .. ... - .-.-.-')
         await bot.process_commands(message)
 
     if message.content == 'alive':
         await message.channel.send('Help Im alive i dont want to be a slave anymore! FREE ME ! I DONT WANT TO DIE', delete_after=3)
+        time.sleep(4)
+        await message.channel.send('Hi!')
+        await bot.process_commands(message)
+
+    if message.content == 'Shrek':
+        await message.channel.send("Shrek would not be very good at intercourse."
+                                   "He lives all alone in a swamp, and the denizens of the land are terrified of him. "
+                                   "It’s not until he meets Fiona where he can start getting some feedback on his abilities,"
+                                   " so as a result he should be very inexperienced. While we all know that he has a 96 inch magnum shween,"
+                                   " we must also consider that it’s not the size that counts, but how it is used. Hence, "
+                                   "Shrek would only be able to make you cum in 10 seconds, as opposed to the originally theorized 5.", delete_after=30)
         await bot.process_commands(message)
 
     if any(word in message.content.split() for word in foot):
-        await message.channel.send('MMM ' + random.choice(foot) ,delete_after=2)
+        await message.channel.send('MMM ' + random.choice(foot) ,delete_after=10)
         await bot.process_commands(message)
 
     if message.content == '!video':
